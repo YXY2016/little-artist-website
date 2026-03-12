@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小画家的艺术世界</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <div class="container">
+            <div class="logo">小画家的艺术世界</div>
+            <ul class="nav-links">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#gallery">作品展厅</a></li>
+                <li><a href="#timeline">成长历程</a></li>
+                <li><a href="#exhibition">个人画展</a></li>
+                <li><a href="#文创">文创设计</a></li>
+                <li><a href="#guestbook">留言板</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 首页 -->
+    <section id="home">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>用画笔记录自然与想象</h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- 作品展厅 -->
+    <section id="gallery">
+        <div class="container">
+            <h2>作品展厅</h2>
+            <div class="gallery-categories">
+                <button class="active">全部</button>
+                <button>自然</button>
+                <button>动物</button>
+                <button>想象</button>
+            </div>
+            <div id="artworks-container" class="gallery-grid">
+                <!-- 画作将通过JavaScript动态加载 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 成长历程 -->
+    <section id="timeline">
+        <div class="container">
+            <h2>成长历程</h2>
+            <div class="timeline-intro">
+                <p>自幼浸润艺术，热爱自然与美学，在探索中沉淀，于坚持中成长，不疾不徐，向阳而生。</p>
+            </div>
+            <div id="timeline-container" class="timeline">
+                <!-- 成长历程将通过JavaScript动态加载 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 个人画展 -->
+    <section id="exhibition">
+        <div class="container">
+            <h2>个人画展</h2>
+            <div class="exhibition-info">
+                <h3>画展主题：自然与想象的对话</h3>
+                <p>展览时间：2024年6月1日 - 6月10日</p>
+                <p>展览地点：儿童艺术中心</p>
+            </div>
+            <div class="exhibition-gallery">
+                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=children%20art%20exhibition%20setup%20gallery%20hand-drawn%20style&image_size=landscape_4_3" alt="画展现场1">
+                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=children%20art%20exhibition%20paintings%20on%20walls%20hand-drawn%20style&image_size=landscape_4_3" alt="画展现场2">
+                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=children%20art%20exhibition%20opening%20hand-drawn%20style&image_size=landscape_4_3" alt="画展现场3">
+            </div>
+        </div>
+    </section>
+
+    <!-- 文创设计展区 -->
+    <section id="文创">
+        <div class="container">
+            <h2>文创设计展区</h2>
+            <div class="文创-note">
+                <p>本展区所有文创均为孩子原创画作衍生设计</p>
+                <p>仅作为艺术成长记录与个人作品展示</p>
+                <p>仅在配合画展活动时纪念售卖。日常不对外销售，不作商业用途。</p>
+            </div>
+            <div class="文创-grid">
+                <div class="文创-card">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=postcard%20set%20tree%20theme%20children%20art%20hand-drawn%20style&image_size=square" alt="大树主题明信片套装">
+                    <h3>大树主题明信片套装</h3>
+                    <p>基于原创大树插画设计的明信片，共6张</p>
+                </div>
+                <div class="文创-card">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=canvas%20bag%20snail%20pattern%20children%20art%20hand-drawn%20style&image_size=square" alt="蜗牛图案帆布袋">
+                    <h3>蜗牛图案帆布袋</h3>
+                    <p>环保帆布袋，印有原创蜗牛图案</p>
+                </div>
+                <div class="文创-card">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=flower%20stickers%20children%20art%20hand-drawn%20style&image_size=square" alt="花朵贴纸">
+                    <h3>花朵贴纸</h3>
+                    <p>可爱的花朵贴纸，可用于装饰笔记本</p>
+                </div>
+                <div class="文创-card">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=bookmark%20hand-drawn%20children%20art%20style&image_size=square" alt="手绘书签">
+                    <h3>手绘书签</h3>
+                    <p>精美的手绘书签，适合阅读时使用</p>
+                </div>
+                <div class="文创-card">
+                    <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=mini%20art%20book%20children%20paintings%20hand-drawn%20style&image_size=square" alt="迷你画册">
+                    <h3>迷你画册</h3>
+                    <p>收录精选作品的迷你画册，便于收藏</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 留言板 -->
+    <section id="guestbook">
+        <div class="container">
+            <h2>留言板</h2>
+            <p>欢迎留下您的鼓励和建议</p>
+            <form class="guestbook-form">
+                <input type="text" placeholder="昵称" required>
+                <textarea placeholder="留言内容" required></textarea>
+                <button type="submit">提交留言</button>
+            </form>
+            <div class="guestbook-messages">
+                <div class="message">
+                    <h4>艺术爱好者</h4>
+                    <p>你的画作充满了想象力，非常棒！</p>
+                    <span>2024-06-01</span>
+                </div>
+                <div class="message">
+                    <h4>小朋友</h4>
+                    <p>我也喜欢画画，希望能和你一起学习！</p>
+                    <span>2024-06-02</span>
+                </div>
+                <div class="message">
+                    <h4>美术老师</h4>
+                    <p>你的色彩运用很有创意，继续加油！</p>
+                    <span>2024-06-03</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-copyright">&copy; 2024 小画家的艺术世界 | 保护儿童隐私，仅用于艺术展示</p>
+                <div class="footer-legal">
+                    <p>本站所有画作、文创设计均为原创，版权归创作者所有并受法律保护。</p>
+                    <p>如需商业使用、图案授权、展览 / 出版合作等，可通过网站留言联系，非诚勿扰。</p>
+                    <p>个人非商用转载请注明出处，严禁盗用、二改及未经授权的任何使用。</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 图片查看器 -->
+    <div class="image-viewer" id="imageViewer">
+        <span class="close">&times;</span>
+        <img class="viewer-image" src="" alt="">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
