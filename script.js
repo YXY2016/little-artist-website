@@ -136,19 +136,63 @@ function loadArtworks() {
 function initLazyLoad() {
     const lazyImages = document.querySelectorAll('.lazy-load');
     
+    // 配置Intersection Observer，增加根边距以提前加载
     const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const img = entry.target;
+                // 加载图片
                 img.src = img.dataset.src;
-                img.classList.remove('lazy-load');
-                observer.unobserve(img);
+                // 加载完成后移除类
+                img.onload = function() {
+                    img.classList.remove('lazy-load');
+                    observer.unobserve(img);
+                };
+                // 加载失败处理
+                img.onerror = function() {
+                    img.classList.remove('lazy-load');
+                    observer.unobserve(img);
+                };
             }
         });
+    }, {
+        rootMargin: '200px 0px', // 提前200px开始加载
+        threshold: 0.1
     });
     
+    // 批量处理图片，先加载可视区域的，再预加载其他的
+    const visibleImages = [];
+    const hiddenImages = [];
+    
     lazyImages.forEach(img => {
+        const rect = img.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            visibleImages.push(img);
+        } else {
+            hiddenImages.push(img);
+        }
+    });
+    
+    // 先观察可视区域的图片
+    visibleImages.forEach(img => {
         imageObserver.observe(img);
+    });
+    
+    // 延迟观察隐藏的图片，避免同时加载太多
+    setTimeout(() => {
+        hiddenImages.forEach(img => {
+            imageObserver.observe(img);
+        });
+    }, 500);
+}
+
+// 预加载关键图片
+function preloadCriticalImages() {
+    // 预加载前几张重要图片
+    const criticalImages = artworksData.slice(0, 5);
+    criticalImages.forEach(artwork => {
+        const img = new Image();
+        img.src = artwork.image;
     });
 }
 
@@ -222,6 +266,9 @@ loadArtworks();
 
 // 初始化加载成长历程
 loadTimeline();
+
+// 页面加载完成后预加载关键图片
+window.addEventListener('load', preloadCriticalImages);
 
 // 留言板提交功能
 const guestbookForm = document.querySelector('.guestbook-form');
