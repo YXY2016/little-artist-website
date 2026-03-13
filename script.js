@@ -114,7 +114,7 @@ function loadArtworks() {
         artworkElement.dataset.category = artwork.category;
         
         artworkElement.innerHTML = `
-            <img src="${artwork.image}" alt="${artwork.name}">
+            <img data-src="${artwork.image}" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='250' viewBox='0 0 300 250'%3E%3Crect width='300' height='250' fill='%23E1F0E1'/%3E%3Ctext x='50%25' y='50%25' font-size='14' text-anchor='middle' fill='%2399C899' dominant-baseline='middle'%3E加载中...%3C/text%3E%3C/svg%3E" alt="${artwork.name}" class="lazy-load">
             <div class="gallery-info">
                 <h3>${artwork.name}</h3>
                 <p>年龄：${artwork.age}</p>
@@ -125,8 +125,31 @@ function loadArtworks() {
         container.appendChild(artworkElement);
     });
     
+    // 初始化懒加载
+    initLazyLoad();
+    
     // 重新绑定图片点击事件
     bindImageClickEvents();
+}
+
+// 图片懒加载
+function initLazyLoad() {
+    const lazyImages = document.querySelectorAll('.lazy-load');
+    
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove('lazy-load');
+                observer.unobserve(img);
+            }
+        });
+    });
+    
+    lazyImages.forEach(img => {
+        imageObserver.observe(img);
+    });
 }
 
 // 动态加载成长历程
@@ -160,7 +183,8 @@ function bindImageClickEvents() {
     galleryItems.forEach(img => {
         img.addEventListener('click', function() {
             imageViewer.style.display = 'block';
-            viewerImage.src = this.src;
+            // 使用实际的图片地址
+            viewerImage.src = this.dataset.src || this.src;
         });
     });
 }
