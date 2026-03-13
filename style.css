@@ -103,11 +103,12 @@ nav .container {
 }
 
 .card {
+    position: relative;
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
     padding: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     width: 200px;
 }
 
@@ -170,11 +171,12 @@ section h2 {
 }
 
 .gallery-item {
+    position: relative;
     background-color: white;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
 }
 
@@ -275,10 +277,11 @@ section h2 {
 }
 
 .timeline-content {
+    position: relative;
     padding: 30px;
     background-color: white;
     border-radius: 15px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -331,6 +334,7 @@ section h2 {
 }
 
 .exhibition-gallery {
+    position: relative;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
@@ -366,10 +370,11 @@ section h2 {
 }
 
 .文创-card {
+    position: relative;
     background-color: white;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
 
@@ -583,16 +588,43 @@ footer {
     }
 }
 
+/* 图片版权保护 */
+.card img, .timeline-content img, .gallery-item img, .文创-card img, .exhibition-gallery img {
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    pointer-events: none;
+}
+
+/* 防止拖拽 */
+img {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    pointer-events: none;
+}
+
+/* 图片水印 */
+.card::before, .timeline-content::before, .gallery-item::before, .文创-card::before, .exhibition-gallery::before {
+    content: '© 小画家的艺术世界';
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 5px 10px;
+    font-size: 12px;
+    color: #444;
+    z-index: 2;
+    border-radius: 4px;
+}
+
 /* 动画效果 */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 section {

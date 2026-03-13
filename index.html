@@ -5,6 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>小画家的艺术世界</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+    // 禁止右键菜单
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        alert('图片受版权保护，禁止下载');
+    });
+
+    // 禁止键盘快捷键
+    document.addEventListener('keydown', function(e) {
+        // 禁止 Ctrl+S
+        if (e.ctrlKey && e.key === 's') {
+            e.preventDefault();
+            alert('图片受版权保护，禁止下载');
+        }
+        // 禁止 Ctrl+U（查看源代码）
+        if (e.ctrlKey && e.key === 'u') {
+            e.preventDefault();
+            alert('图片受版权保护，禁止查看源代码');
+        }
+        // 禁止 F12（开发者工具）
+        if (e.key === 'F12') {
+            e.preventDefault();
+            alert('图片受版权保护，禁止使用开发者工具');
+        }
+    });
+    </script>
 </head>
 <body>
     <!-- 导航栏 -->
