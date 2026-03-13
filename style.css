@@ -595,7 +595,6 @@ footer {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    pointer-events: none;
 }
 
 /* 防止拖拽 */
@@ -604,7 +603,6 @@ img {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    pointer-events: none;
 }
 
 /* 图片水印 */
